@@ -29,7 +29,7 @@ function SignUp() {
       );
 
       setUserData(result.data);
-      navigate("/customize");
+      navigate("/signin");
     } catch (err) {
       console.error("Signup error:", err);
       setError(err.response?.data?.message || "Something went wrong!");

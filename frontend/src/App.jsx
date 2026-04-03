@@ -25,7 +25,7 @@ function App() {
       />
 
       {/* Signup route - redirect to home if logged in */}
-      <Route path='/' element={(userData?.assistantImage && userData?.assistantName)? <home/> :<Navigate to ={"/customize"}/>}/>
+     
       <Route
         path="/signup"
         element={!userData ? <SignUp /> : <Navigate to="/" />}
