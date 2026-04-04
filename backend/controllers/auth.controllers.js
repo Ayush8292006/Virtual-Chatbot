@@ -26,11 +26,12 @@ export const signUp = async (req, res) => {
 
         const token = await genToken(user._id);
 
+        // ✅ FIXED - Login jaisi cookie settings
         res.cookie("token", token, {
             httpOnly: true,
-            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-            sameSite: "strict",
-            secure: false
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+            sameSite: "None",
+            secure: true
         });
 
         return res.status(201).json(user);
@@ -40,7 +41,7 @@ export const signUp = async (req, res) => {
     }
 };
 
-// LOGIN
+// LOGIN (Already correct)
 export const login = async (req, res) => {
     try {
         const { email, password } = req.body;
